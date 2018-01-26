@@ -1,11 +1,15 @@
+import os
 import pygame
 from stages.stage import Stage
 from stages.stage_example import StageExample
 from stages.stage1 import Stage1
 from input import Input
 
+os.environ['SDL_VIDEO_WINDOW_POS'] = "1, 0"
+resolution = [1024, 768]
+
 pygame.init()
-resolution = [640, 480]
+pygame.display.set_caption("32 bits delivery")
 screen = pygame.display.set_mode(resolution)
 clock = pygame.time.Clock()
 
