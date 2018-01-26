@@ -60,5 +60,7 @@ while GameIsRunning:
     complete = stages[currentStage].update(input, tick)
     if complete:
         currentStage = (currentStage + 1) % len(stages)
+        stages[currentStage].__init__(resolution)
+        
     
     stages[currentStage].draw(screen)
