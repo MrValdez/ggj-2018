@@ -1,4 +1,5 @@
 import pygame
+import pyganim
 
 class Text:
     def __init__(self, text, color, update_pos, font_name = None):
@@ -16,11 +17,16 @@ class Text:
 
 class Stage:
     def __init__(self, resolution):
-        self.texts = [Text("Hello World", (255, 255, 255), self._center_text)]
+        self.texts = []
         self.resolution = resolution
 
+        # examples
+        self.texts.append([Text("Hello World", (255, 255, 255), self._center_text)])
         example = Text("h", (0, 0, 0), lambda x: x)
         self.texts.append(example)
+
+        self.sprite = pyganim.PygAnimation([("images/spam.png", 10)])
+        self.sprite.play()
 
     def _center_text(self, pos):
         pos.centerx = self.resolution[0] / 2
@@ -37,6 +43,7 @@ class Stage:
 
     def draw(self, screen):
         self._draw_texts(screen)
+        self.sprite.blit(screen, (0, 0))
 
     def _draw_texts(self, screen):
         for text in self.texts:
