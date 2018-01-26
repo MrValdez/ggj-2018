@@ -7,6 +7,7 @@ from stages.stage import Stage
 from stages.stage_example import StageExample
 from stages.stage1 import Stage1
 from stages.stage2 import Stage2
+from stages.stage3 import Stage3
 from stages.stage_end import Stage_end
 from stages.stage_transition import Stage_transition
 
@@ -24,6 +25,7 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
+    Stage3(resolution),         # chrome game
     Stage2(resolution),         # have you tried turning it on and off again?
     Stage_end(resolution),
     ]
@@ -36,7 +38,7 @@ for stage in stages:
 stages = updated_stages
 
 currentStage = 0
-currentStage = -2
+#currentStage = -2
 
 while GameIsRunning:
     pygame.display.flip()
