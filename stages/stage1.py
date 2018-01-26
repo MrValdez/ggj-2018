@@ -10,7 +10,7 @@ class Stage1(Stage):
         self.sprite = pyganim.PygAnimation([("images/spam.png", 10)])
         self.sprite.play()
         self.sprite_size = self.sprite.getMaxSize()
-
+        
         self.pos = [0, 0]
 
     def update(self, input):
@@ -28,3 +28,4 @@ class Stage1(Stage):
         super().draw(screen)
 
         self.sprite.blit(screen, self.pos)
+        self.button.blit(screen, self.pos)

@@ -1,4 +1,5 @@
 import pygame
+import pyganim
 
 class Text:
     def __init__(self, text, color, update_pos, font_name = None):
@@ -17,6 +18,11 @@ class Text:
 class Stage:
     def __init__(self, resolution):
         self.resolution = resolution
+
+        self.button = pyganim.PygAnimation([("images/button1.png", 700),
+                                            ("images/button 2.png", 600)])
+        self.button.scale2x()
+        self.button.play()
 
     def _center_text(self, pos):
         pos.centerx = self.resolution[0] / 2
