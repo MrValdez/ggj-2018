@@ -1,3 +1,5 @@
+# Have you tried turning it on and off again?
+
 import pygame
 import pyganim
 from .stage import Stage, Text
