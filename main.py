@@ -5,7 +5,8 @@ from stages.stage_example import StageExample
 from stages.stage1 import Stage1
 from input import Input
 
-os.environ['SDL_VIDEO_WINDOW_POS'] = "1, 0"
+#os.environ['SDL_VIDEO_WINDOW_POS'] = "1, 0"
+os.environ['SDL_VIDEO_WINDOW_POS'] = "100, 0"     #debug
 resolution = [1024, 768]
 
 pygame.init()
