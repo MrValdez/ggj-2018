@@ -3,6 +3,7 @@ import pygame
 from stages.stage import Stage
 from stages.stage_example import StageExample
 from stages.stage1 import Stage1
+from stages.stage2 import Stage2
 from input import Input
 
 #os.environ['SDL_VIDEO_WINDOW_POS'] = "1, 0"
@@ -19,10 +20,11 @@ input = Input()
 stages = [
     StageExample(resolution),
     Stage1(resolution),
+    Stage2(resolution),         # have you tried turning it on and off again?
     ]
 
 currentStage = stages[0]
-currentStage = stages[1]
+currentStage = stages[-1]
 
 while GameIsRunning:
     pygame.display.flip()
