@@ -10,10 +10,13 @@ clock = pygame.time.Clock()
 
 GameIsRunning = True
 input = Input()
-stages = [Stage(), Stage1()]
+stages = [
+    Stage(resolution),
+    Stage1(resolution),
+    ]
 
 currentStage = stages[0]
-#currentStage = stages[1]
+currentStage = stages[1]
 
 while GameIsRunning:
     pygame.display.flip()
