@@ -11,11 +11,13 @@ class Stage2(Stage):
         switch = pyganim.PygAnimation([("images/button1.png", 10),         # off
                                        ("images/button 2.png", 10)])        # on
         self.switches = []
+        self.switch_status = []
         self.switches.append(switch)
         self.switches.append(switch.getCopy())
         for switch in self.switches:
             switch.play()
             switch.pause()
+            self.switch_status.append(False)
 
         self.pos = [[100, 200],
                     [400, 200]]
@@ -29,7 +31,10 @@ class Stage2(Stage):
 
         if input.button:
             self.switches[self.current_switch].nextFrame()
-        
+            self.switch_status[self.current_switch] = True
+
+        return all(self.switch_status)
+
     def draw(self, screen):
         super().draw(screen)
 
