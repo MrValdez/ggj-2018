@@ -56,12 +56,7 @@ class Input:
             result_key = keys[key] and not self.prev_keys[key]
 
             if self.joystick:
-                result_joy = (check_stick_move(key, pygame.K_LEFT, self.deadzone) or
-                              check_stick_move(key, pygame.K_RIGHT, self.deadzone) or
-                              check_stick_move(key, pygame.K_UP, self.deadzone) or
-                              check_stick_move(key, pygame.K_DOWN, self.deadzone) or
-                              check_stick_press(key)
-                              )
+                result_joy = check_stick_press(key)
                 
             return result_key or result_joy
 
@@ -79,10 +74,10 @@ class Input:
 
             return result_key or result_joy
 
-        self.left = check_key(pygame.K_LEFT)
-        self.right = check_key(pygame.K_RIGHT)
-        self.up = check_key(pygame.K_UP)
-        self.down = check_key(pygame.K_DOWN)
+        self.left = check_keyhold(pygame.K_LEFT)
+        self.right =check_keyhold(pygame.K_RIGHT)
+        self.up = check_keyhold(pygame.K_UP)
+        self.down = check_keyhold(pygame.K_DOWN)
         self.button1 = check_key(self.button1_bindings)
         self.button2 = check_key(self.button2_bindings)
 
@@ -90,4 +85,5 @@ class Input:
         self.button2_hold = check_keyhold(self.button2_bindings)
 
         self.prev_keys = keys
-        self.prev_buttons = [self.joystick.get_button(0), self.joystick.get_button(1)]
+        if self.joystick:
+            self.prev_buttons = [self.joystick.get_button(0), self.joystick.get_button(1)]
