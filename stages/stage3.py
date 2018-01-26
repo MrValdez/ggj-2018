@@ -25,6 +25,7 @@ class Stage3(Stage):
         self.reset()
         
     def reset(self):
+        self.player_x = 100
         self.ground_y = 200
         self.state = "run"
         self.jump_power = 0
@@ -46,14 +47,17 @@ class Stage3(Stage):
                 self.state = "run"
                 
             self.obstacle_pos[0] -= 13
+        
+        if self.obstacle_pos[0] < -100:
+            return True
 
     def draw(self, screen):
         super().draw(screen)
 
         if self.state == "run":
-            self.run_anim.blit(screen, [20, self.ground_y])
+            self.run_anim.blit(screen, [self.player_x, self.ground_y])
         else:
             y = self.ground_y - min(self.jump_power, 100)
-            self.run_anim.blit(screen, [20, y])
+            self.run_anim.blit(screen, [self.player_x, y])
 
         self.obstacle.blit(screen, self.obstacle_pos)
