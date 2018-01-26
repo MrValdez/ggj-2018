@@ -25,18 +25,18 @@ class Stage3(Stage):
         self.reset()
         
     def reset(self):
-        self.player_x = 100
+        self.player_x = 400
         self.ground_y = 200
         self.state = "run"
         self.jump_power = 0
         self.jump_tick = 0
-        self.obstacle_pos = [1000, self.ground_y]
+        self.obstacle_pos = [self.player_x + 1000, self.ground_y]
 
     def update(self, input, tick):
         if input.button:
             if self.state == "run":
                 self.state = "jump"
-                self.jump_power = 350
+                self.jump_power = self.obstacle.getMaxSize()[1] + 50
 
         self.jump_tick += tick
         if self.jump_tick > 100:
@@ -50,6 +50,11 @@ class Stage3(Stage):
         
         if self.obstacle_pos[0] < -100:
             return True
+
+        if (self.state == "run" and 
+            (self.obstacle_pos[0] <= self.player_x + (self.run_anim.getMaxSize()[0] * .60) and
+             self.obstacle_pos[0] >= self.player_x - (self.obstacle.getMaxSize()[0] * .30))):
+            self.reset()
 
     def draw(self, screen):
         super().draw(screen)
