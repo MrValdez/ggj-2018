@@ -21,7 +21,7 @@ class Stage2(Stage):
                     [400, 200]]
         self.current_switch = 0
 
-    def update(self, input):
+    def update(self, input, tick):
         speed = 10
         if input.left:  self.current_switch = self.current_switch - 1
         if input.right:  self.current_switch = self.current_switch + 1

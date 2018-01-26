@@ -29,7 +29,8 @@ class Stage:
         pos.centery = 50
         return pos
 
-    def update(self, input):
+    def update(self, input, tick):
+        """ if update returns True, change stage """
         if input.left: print("left")
         if input.right: print("right")
         if input.up: print("up")

@@ -1,10 +1,14 @@
 import os
 import pygame
+
+from input import Input
+
 from stages.stage import Stage
 from stages.stage_example import StageExample
 from stages.stage1 import Stage1
 from stages.stage2 import Stage2
-from input import Input
+from stages.stage_end import Stage_end
+from stages.stage_transition import Stage_transition
 
 #os.environ['SDL_VIDEO_WINDOW_POS'] = "1, 0"
 os.environ['SDL_VIDEO_WINDOW_POS'] = "100, 0"     #debug
@@ -18,13 +22,21 @@ clock = pygame.time.Clock()
 GameIsRunning = True
 input = Input()
 stages = [
-    StageExample(resolution),
-    Stage1(resolution),
+#    StageExample(resolution),
+#    Stage1(resolution),
     Stage2(resolution),         # have you tried turning it on and off again?
+    Stage_end(resolution),
     ]
 
-currentStage = stages[0]
-currentStage = stages[-1]
+# add transtitions
+updated_stages = []
+for stage in stages:
+    updated_stages.append(stage)
+    updated_stages.append(Stage_transition(resolution))
+stages = updated_stages
+
+currentStage = 0
+currentStage = -2
 
 while GameIsRunning:
     pygame.display.flip()
@@ -44,6 +56,9 @@ while GameIsRunning:
         break
 
     input.update()
-    currentStage.update(input)
 
-    currentStage.draw(screen)
+    complete = stages[currentStage].update(input, tick)
+    if complete:
+        currentStage = (currentStage + 1) % len(stages)
+    
+    stages[currentStage].draw(screen)

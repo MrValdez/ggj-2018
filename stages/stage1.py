@@ -13,7 +13,7 @@ class Stage1(Stage):
         
         self.pos = [0, 0]
 
-    def update(self, input):
+    def update(self, input, tick):
         speed = 10
         if input.left:  self.pos[0] -= speed
         if input.right: self.pos[0] += speed

@@ -16,7 +16,7 @@ class StageExample(Stage):
         self.sprite = pyganim.PygAnimation([("images/spam.png", 10)])
         self.sprite.play()
 
-    def update(self, input):
+    def update(self, input, tick):
         if input.left: print("left")
         if input.right: print("right")
         if input.up: print("up")
