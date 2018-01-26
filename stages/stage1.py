@@ -7,4 +7,5 @@ class Stage1(Stage):
         self.texts = [Text("Remove interference", (255, 255, 255), self._center_text)]
 
     def draw(self, screen):
+        screen.fill([255,128,128])
         super().draw(screen)

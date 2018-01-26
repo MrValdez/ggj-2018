@@ -13,11 +13,11 @@ GameIsRunning = True
 input = Input()
 stages = [
     StageExample(resolution),
-#    Stage1(resolution),
+    Stage1(resolution),
     ]
 
 currentStage = stages[0]
-#currentStage = stages[1]
+currentStage = stages[1]
 
 while GameIsRunning:
     pygame.display.flip()

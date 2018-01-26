@@ -32,4 +32,8 @@ class Stage:
         if input.button2: print("button2")
 
     def draw(self, screen):
-        pass
+        self._draw_texts(screen)
+
+    def _draw_texts(self, screen):
+        for text in self.texts:
+            text.draw(screen)

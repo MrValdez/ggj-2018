@@ -28,9 +28,3 @@ class StageExample(Stage):
         super().draw(screen)
         screen.fill([255,128,128])
         self.sprite.blit(screen, (0, 0))
-
-        self._draw_texts(screen)
-
-    def _draw_texts(self, screen):
-        for text in self.texts:
-            text.draw(screen)
