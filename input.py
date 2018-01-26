@@ -121,6 +121,10 @@ class Input:
         self.button1_hold = check_keyhold(self.button1_bindings)
         self.button2_hold = check_keyhold(self.button2_bindings)
 
+        # any button is pushed
+        self.button = self.button1 or self.button2
+        self.button_hold = self.button1_hold or self.button2_hold
+
         self.prev_keys = keys
         if self.joystick:
             self.prev_buttons = [self.joystick.get_button(0), self.joystick.get_button(1)]
