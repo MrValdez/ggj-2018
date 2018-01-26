@@ -9,20 +9,23 @@ class Text:
 
     def draw(self, screen):
         text = self.font.render(self.text, True, self.color)
-        pos = self.update_pos(text)
+        pos = text.get_rect()
+        pos = self.update_pos(pos)
 
         screen.blit(text, pos)
 
 class Stage:
     def __init__(self, resolution):
-        def send_to_center(text):
-            pos = text.get_rect()
-            pos.centerx = self.resolution[0] / 2
-            pos.centery = 50
-            return pos
-
-        self.texts = [Text("Hello World", (255, 255, 255), send_to_center)]
+        self.texts = [Text("Hello World", (255, 255, 255), self._center_text)]
         self.resolution = resolution
+
+        example = Text("h", (0, 0, 0), lambda x: x)
+        self.texts.append(example)
+
+    def _center_text(self, pos):
+        pos.centerx = self.resolution[0] / 2
+        pos.centery = 50
+        return pos
 
     def update(self, input):
         if input.left: print("left")
