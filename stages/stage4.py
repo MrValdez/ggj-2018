@@ -6,7 +6,7 @@ import random
 from .stage import Stage, Text
 
 class Enemy:
-    def __init__(self, midscreen):
+    def __init__(self, midscreen, pos_y):
         self.midscreen = midscreen
 
         self.anim = pyganim.PygAnimation([("images/button1.png", 10),
@@ -15,18 +15,25 @@ class Enemy:
 
         self.rect = self.anim.getRect()
         self.rect.centerx = self.midscreen
-        self.rect.top = random.randint(0, 1)
+        self.rect.top = pos_y
         
         self.speed = [0.3, 1]
         self.dir = random.choice([-1, +1])
         self.scale = 1
 
     def update(self, tick):
-        self.rect.y += self.speed[0]
+        
+        if self.rect.y > 0:
+            self.rect.y += self.speed[0]
+        else:
+            self.rect.y += 7
+        
         if abs(self.midscreen - self.rect.centerx) < 130:
             self.rect.centerx += (self.speed[1] / 2) * self.dir
-        self.speed[0] += 0.09
-        self.speed[1] += 0.04
+
+        if self.rect.y > 0:
+            self.speed[1] += 0.03
+            self.speed[0] += 0.05
         
         self.scale += 0.01
         self.scale = min(self.scale, 2.1)
@@ -58,11 +65,17 @@ class Stage4(Stage):
     def reset(self):
         self.current_anim = self.stand_anim
         self.enemies = []
-        for i in range(4):
-            self.enemies.append(Enemy(self.center_x))
+        
+        pos_y = 0
+        for i in range(6):
+            self.enemies.append(Enemy(self.center_x, pos_y))
+            pos_y -= 300
         self.punch_cooldown = 0
 
     def update(self, input, tick):
+        if not len(self.enemies):
+            return True
+
         for enemy in self.enemies:
             enemy.update(tick)
         
@@ -77,6 +90,17 @@ class Stage4(Stage):
             self.punch_cooldown = cooldown
         elif self.punch_cooldown <= 0:
             self.current_anim = self.stand_anim
+
+        # check if hit
+        for enemy in self.enemies:
+            if enemy.rect.y > self.bottom_y - 250:
+                if ((enemy.rect.x < self.center_x and self.current_anim == self.left_anim) or
+                    (enemy.rect.x > self.center_x and self.current_anim == self.right_anim)):
+                    self.enemies.remove(enemy)
+                    continue
+                    
+            if enemy.rect.y > self.bottom_y - 50:
+                self.reset()
 
 
     def draw(self, screen):
