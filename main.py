@@ -17,6 +17,7 @@ from stages.stage9 import Stage9
 from stages.stage10 import Stage10
 from stages.stage11 import Stage11
 from stages.stage12 import Stage12
+from stages.stage13 import Stage13
 from stages.stage_end import Stage_end
 from stages.stage_transition import Stage_transition
 
@@ -34,6 +35,7 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
+    Stage13(resolution),        # Love transmission!
     Stage12(resolution),        # Charge!
     Stage11(resolution),        # Space Defender
     Stage10(resolution),        # Ninja Turtle Van

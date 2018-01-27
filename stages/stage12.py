@@ -52,6 +52,7 @@ class Stage12(Stage):
     def __init__(self, resolution):
         super().__init__(resolution)
         self.title = Text("Charge to the end without getting caught", (255, 255, 255), self._center_text)
+        self.texts = [self.title]
 
         self.reset()
         
