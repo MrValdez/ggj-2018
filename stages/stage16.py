@@ -1,4 +1,4 @@
-# Charge to end
+# Use poop to stop WiFi transmissions
 
 import math
 import pygame
