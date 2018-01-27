@@ -14,3 +14,6 @@ https://visualpharm.com/free-icons/sad%20cloud-595b40b85ba036ed117dc41c
 
 ## Personally taken pictures
 usb ok.jpg
+
+# code assets
+https://stackoverflow.com/a/10669054/1599
