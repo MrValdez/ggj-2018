@@ -19,5 +19,9 @@ https://visualpharm.com/free-icons/sad%20cloud-595b40b85ba036ed117dc41c
 ## Personally taken pictures
 usb ok.jpg
 
+## Meme assets
+https://en.wikipedia.org/wiki/File:RickRoll.png
+Ugandan Knuckles source is suspected to be: https://www.facebook.com/groups/guhitpinascentralgroup/permalink/2230801217150749/
+
 # code assets
 https://stackoverflow.com/a/10669054/1599
