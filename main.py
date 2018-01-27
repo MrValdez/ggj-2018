@@ -11,6 +11,7 @@ from stages.stage3 import Stage3
 from stages.stage4 import Stage4
 from stages.stage5 import Stage5
 from stages.stage6 import Stage6
+from stages.stage7 import Stage7
 from stages.stage_end import Stage_end
 from stages.stage_transition import Stage_transition
 
@@ -28,7 +29,8 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
-    Stage6(resolution),         # energize
+    Stage7(resolution),         # 
+    Stage6(resolution),         # energize with coffee
     Stage5(resolution),         # crowd surfing game
     Stage4(resolution),         # punching game
     Stage3(resolution),         # chrome game
