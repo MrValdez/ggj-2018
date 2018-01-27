@@ -1,7 +1,30 @@
 import pygame
 import pyganim
 
-class Projectile:
+class Collidable:
+    def __init__(self, anim, pos):
+        self.anim = anim.getCopy()
+        self.anim.play()
+        self.pos = pos[:]
+
+    def has_collide(self, obj):
+        """ Returns True if collides """
+        rect1 = self.anim.getRect()
+        rect2 = obj.anim.getRect()
+        
+        rect1.move_ip(self.pos)
+        rect2.move_ip(obj.pos)
+        
+        return rect1.colliderect(rect2):
+
+    def update(self, tick):
+        pass
+
+    def draw(self, screen):
+        self.anim.blit(screen, self.pos)
+
+
+class Projectile(Collidable):
     def __init__(self, original_anim, pos, facing, speed, resolution):
         self.anim = original_anim.getCopy()
         self.anim.play()
@@ -23,9 +46,6 @@ class Projectile:
         if (-100 < self.pos[0] > self.resolution[0] or
             -100 < self.pos[1] > self.resolution[1]):
             return True
-
-    def draw(self, screen):
-        self.anim.blit(screen, self.pos)
 
 
 class Text:

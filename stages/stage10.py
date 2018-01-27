@@ -3,7 +3,7 @@
 import pygame
 import pyganim
 import random
-from .stage import Stage, Text, Projectile
+from .stage import Stage, Text, Projectile, Collidable
 
 
 class Stage10(Stage):
@@ -32,6 +32,10 @@ class Stage10(Stage):
         self.shot_original = pyganim.PygAnimation([("images/button1.png", 200),
                                                    ("images/button 2.png", 200)])
         self.shots = []
+        
+        self.barrier = pyganim.PygAnimation([("images/button1.png", 200),
+                                                   ("images/button 2.png", 200)])
+        self.barriers = [Collidable(self.barrier, [20, 20])]
 
         rects = [
                  [64 * 1, 0, 64, 64],
@@ -78,6 +82,13 @@ class Stage10(Stage):
         for shot in self.shots:
             if shot.update(tick):
                 self.shots.remove(shot)
+
+        for barrier in self.barriers:
+            for shot in self.shots:
+                if shot.has_collide(barrier):
+                    print("collide")
+                    self.shots.remove(shot)
+
             
     def draw(self, screen):
         super().draw(screen)
@@ -87,3 +98,5 @@ class Stage10(Stage):
         
         for shot in self.shots:
             shot.draw(screen)
+        for barrier in self.barriers:
+            barrier.draw(screen)
