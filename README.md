@@ -14,6 +14,8 @@ https://thenounproject.com/term/wifi-signal/325210/
 https://commons.wikimedia.org/wiki/File:Living_Room.jpg
 https://thenounproject.com/term/fist/104711/
 https://thenounproject.com/term/television/10291/
+https://commons.wikimedia.org/wiki/File:Psychic_reading.jpg
+https://commons.wikimedia.org/wiki/File:Card_back_01.svg
 
 ## Linkware License
 https://visualpharm.com/free-icons/sad%20cloud-595b40b85ba036ed117dc41c
@@ -24,6 +26,7 @@ usb ok.jpg
 ## Meme assets
 https://en.wikipedia.org/wiki/File:RickRoll.png
 Ugandan Knuckles source is suspected to be: https://www.facebook.com/groups/guhitpinascentralgroup/permalink/2230801217150749/
+http://knowyourmeme.com/memes/doge
 
 # code assets
 https://stackoverflow.com/a/10669054/1599
