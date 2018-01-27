@@ -27,6 +27,7 @@ from stages.stage19 import Stage19
 from stages.stage20 import Stage20
 from stages.stage21 import Stage21
 from stages.stage22 import Stage22
+from stages.stage23 import Stage23
 from stages.stage_end import Stage_end
 from stages.stage_transition import Stage_transition
 
@@ -44,6 +45,7 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
+    Stage23(resolution),        # Send SMS
     Stage22(resolution),        # Psychic transmission
     Stage21(resolution),        # Fix TV
     Stage20(resolution),        # Tune TV signal

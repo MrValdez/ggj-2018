@@ -16,6 +16,8 @@ https://thenounproject.com/term/fist/104711/
 https://thenounproject.com/term/television/10291/
 https://commons.wikimedia.org/wiki/File:Psychic_reading.jpg
 https://commons.wikimedia.org/wiki/File:Card_back_01.svg
+https://creativecommons.org/website-icons/
+http://www.ccpixs.com/ccimages/vector-pixel-heart/1378/
 
 ## Linkware License
 https://visualpharm.com/free-icons/sad%20cloud-595b40b85ba036ed117dc41c
