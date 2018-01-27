@@ -1,6 +1,33 @@
 import pygame
 import pyganim
 
+class Projectile:
+    def __init__(self, original_anim, pos, facing, speed, resolution):
+        self.anim = original_anim.getCopy()
+        self.anim.play()
+        self.pos = pos[:]
+        self.facing = facing[:]
+        self.speed = speed
+        self.resolution = resolution
+
+        if self.facing == [+1, 0]:
+            self.anim.rotate(-90)
+        elif self.facing == [-1, 0]:
+            self.anim.rotate(90)
+        elif self.facing == [0, 1]:
+            self.anim.rotate(180)
+
+    def update(self, tick):
+        self.pos[0] += self.facing[0] * self.speed
+        self.pos[1] += self.facing[1] * self.speed
+        if (-100 < self.pos[0] > self.resolution[0] or
+            -100 < self.pos[1] > self.resolution[1]):
+            return True
+
+    def draw(self, screen):
+        self.anim.blit(screen, self.pos)
+
+
 class Text:
     def __init__(self, text, color, update_pos, font_name = None):
         self.text = text

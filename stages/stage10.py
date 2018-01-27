@@ -3,7 +3,8 @@
 import pygame
 import pyganim
 import random
-from .stage import Stage, Text
+from .stage import Stage, Text, Projectile
+
 
 class Stage10(Stage):
     def __init__(self, resolution):
@@ -70,23 +71,13 @@ class Stage10(Stage):
             self.van = self.van_right
             self.pos[0] += speed
             self.facing = [+1, 0]
-        if input.button:
-            newShot = self.shot_original.getCopy()
-            newShot.play()
-            if self.facing == [+1, 0]:
-                newShot.rotate(-90)
-            elif self.facing == [-1, 0]:
-                newShot.rotate(90)
-            elif self.facing == [0, 1]:
-                newShot.rotate(180)
-            pos = self.pos[:]
-            facing = self.facing[:]
-            
-            self.shots.append([newShot, pos, facing, missile_speed])
+        if input.button:            
+            newShot = Projectile(self.shot_original, self.pos, self.facing, missile_speed, self.resolution)
+            self.shots.append(newShot)
 
-        for i, (shot, pos, facing, missile_speed) in enumerate(self.shots):
-            self.shots[i][1][0] += self.shots[i][2][0] * missile_speed
-            self.shots[i][1][1] += self.shots[i][2][1] * missile_speed
+        for shot in self.shots:
+            if shot.update(tick):
+                self.shots.remove(shot)
             
     def draw(self, screen):
         super().draw(screen)
@@ -94,5 +85,5 @@ class Stage10(Stage):
         self.exit.blit(screen, self.exit_rect)
         self.van.blit(screen, self.pos)
         
-        for shot, pos, facing, missile_speed in self.shots:
-            shot.blit(screen, pos)
+        for shot in self.shots:
+            shot.draw(screen)
