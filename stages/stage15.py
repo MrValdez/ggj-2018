@@ -100,7 +100,7 @@ class Stage15(Stage):
         
     def reset(self):
         self.delta = 0
-        self.claps_remaining = 10
+        self.claps_remaining = 13
 
     def update(self, input, tick):
         if self.claps_remaining <= 0:
