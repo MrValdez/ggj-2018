@@ -21,29 +21,11 @@ class Kaching(UpdatingText):
         self.fade -= 0.01
         self.color[3] = max(0, self.fade)
 
-
     def draw(self, screen):
         text = self.font.render(self.text, False, self.color)
         text.set_alpha(self.fade * 100)
         screen.blit(text, self.pos)
         return text.get_rect()
-
-class Player(Avatar):
-    def __init__(self):
-        Avatar.__init__(self, speed=10, pos=[400, 350], facing=[1, 0],
-                        animation_files=[("images/poop.png", 200),])
-
-    def update(self, input, tick):
-        speed = self.speed
-
-        if input.left_hold:
-            self.pos[0] -= speed
-        if input.right_hold:
-            self.pos[0] += speed
-        if input.up_hold:
-            self.pos[1] -= speed
-        if input.down_hold:
-            self.pos[1] += speed
 
 class Stage19(Stage):
     def __init__(self, resolution):
@@ -55,15 +37,21 @@ class Stage19(Stage):
     def reset(self):
         self.texts = []
         self.objects = []
-        self.trash = ["UFO Parts", "Foobars"]
+        self.trash_names = ["UFO Parts", "Foobars", "Scanners Darkly", "Aluminum Sheets", "Adamantinum", "Statue of Liberty"]
+        self.update_text()
+
+    def update_text(self):
+        self.trash = [UpdatingText(name, (0, 0, 0), (120, 110 + (32 * i)))
+                      for i, name in enumerate(self.trash_names)]
 
     def update(self, input, tick):
         self._iterate_all(self.objects, "update", {"input": input, "tick": tick})
         self.texts = [Text("Sell trash to boost wifi", (0, 0, 0), self._center_text)]
 
         if input.button:
-            self.trash.pop(0)
+            self.trash_names.pop(0)
             self.objects.append(Kaching())
+            self.update_text()
 
         if len(self.trash) <= 0:
             return True
@@ -71,8 +59,11 @@ class Stage19(Stage):
     def draw(self, screen):
         screen.blit(self.bg, (0, 0))
         super().draw(screen)
-
         
+
+        for trash in self.trash:
+            trash.draw(screen)
+
         color = (128, 255, 128)
         rect = pygame.Rect(100, 100, 600, 200)
         pygame.draw.rect(screen, color, rect, 4)
