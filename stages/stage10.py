@@ -6,11 +6,8 @@ import random
 from .stage import Stage, Text, Projectile, Collidable
 
 
-class Stage10(Stage):
-    def __init__(self, resolution):
-        super().__init__(resolution)
-        self.texts = [Text("Drive the turtle van to the exit", (255, 255, 255), self._center_text)]
-
+class Van(Collidable):
+    def __init__(self):
         self.van_original = pyganim.PygAnimation([("images/button1.png", 200),
                                                    ("images/button 2.png", 200)])
         self.van_up = self.van_original.getCopy()
@@ -25,9 +22,38 @@ class Stage10(Stage):
         self.van_left.play()
         self.van_right.play()
 
-        self.van = self.van_right
+        self.anim = self.van_right
         self.pos = [100, 300]
         self.facing = [1, 0]
+        
+    def update(self, input, tick):
+        speed = 3
+        missile_speed = 5
+        
+        if input.left_hold:
+            self.anim = self.van_left
+            self.pos[0] -= speed
+            self.facing = [-1, 0]
+        if input.right_hold:
+            self.anim = self.van_right
+            self.pos[0] += speed
+            self.facing = [+1, 0]
+        if input.down_hold:
+            self.anim = self.van_down
+            self.pos[1] += speed
+            self.facing = [0, +1]
+        if input.up_hold:
+            self.anim = self.van_up
+            self.pos[1] -= speed
+            self.facing = [0, -1]
+
+
+class Stage10(Stage):
+    def __init__(self, resolution):
+        super().__init__(resolution)
+        self.texts = [Text("Drive the turtle van to the exit", (255, 255, 255), self._center_text)]
+
+        self.van = Van()
 
         self.shot_original = pyganim.PygAnimation([("images/button1.png", 200),
                                                    ("images/button 2.png", 200)])
@@ -45,10 +71,8 @@ class Stage10(Stage):
                  ]
         exit = pyganim.getImagesFromSpriteSheet("images/door2.png", rects=rects)
         frames = list(zip(exit, [1000, 400, 400, 400]))
-        self.exit = pyganim.PygAnimation(frames)
-        self.exit.play()
-        self.exit_rect = self.exit.getRect()
-        self.exit_rect.move_ip(700, 100)
+        exit_anim = pyganim.PygAnimation(frames)
+        self.exit = Collidable(exit_anim, [700, 100])
 
         self.reset()
         
@@ -56,27 +80,10 @@ class Stage10(Stage):
         pass
 
     def update(self, input, tick):
-        speed = 3
-        missile_speed = 5
-        
-        if input.up_hold:
-            self.van = self.van_up
-            self.pos[1] -= speed
-            self.facing = [0, -1]
-        if input.down_hold:
-            self.van = self.van_down
-            self.pos[1] += speed
-            self.facing = [0, +1]
-        if input.left_hold:
-            self.van = self.van_left
-            self.pos[0] -= speed
-            self.facing = [-1, 0]
-        if input.right_hold:
-            self.van = self.van_right
-            self.pos[0] += speed
-            self.facing = [+1, 0]
+        self.van.update(input, tick)
+
         if input.button:            
-            newShot = Projectile(self.shot_original, self.pos, self.facing, missile_speed, self.resolution)
+            newShot = Projectile(self.shot_original, self.van.pos, self.van.facing, missile_speed, self.resolution)
             self.shots.append(newShot)
 
         for shot in self.shots:
@@ -88,13 +95,16 @@ class Stage10(Stage):
                 if shot.has_collide(barrier):
                     print("collide")
                     self.shots.remove(shot)
+        
+        if self.van.has_collide(self.exit):
+            return True
 
             
     def draw(self, screen):
         super().draw(screen)
 
-        self.exit.blit(screen, self.exit_rect)
-        self.van.blit(screen, self.pos)
+        self.exit.draw(screen)
+        self.van.draw(screen)
         
         for shot in self.shots:
             shot.draw(screen)
