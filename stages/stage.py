@@ -108,6 +108,22 @@ class Text:
 
         screen.blit(text, pos)
 
+class UpdatingText:
+    def __init__(self, text, color, pos, size=30, font_name = None):
+        self.text = text
+        self.color = color
+        self.pos = pos
+        self.font = pygame.font.Font(font_name, size)
+
+    def update(self, input, tick):
+        pass
+
+    def draw(self, screen):
+        text = self.font.render(self.text, True, self.color)
+
+        screen.blit(text, self.pos)
+        return text.get_rect()
+
 class Stage:
     def __init__(self, resolution):
         self.resolution = resolution

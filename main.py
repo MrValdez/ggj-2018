@@ -23,6 +23,7 @@ from stages.stage15 import Stage15
 from stages.stage16 import Stage16
 from stages.stage17 import Stage17
 from stages.stage18 import Stage18
+from stages.stage19 import Stage19
 from stages.stage_end import Stage_end
 from stages.stage_transition import Stage_transition
 
@@ -40,6 +41,7 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
+    Stage19(resolution),        # Sell trash
     Stage18(resolution),        # Upgrade PC
     Stage17(resolution),        # Buy coffee
     Stage16(resolution),        # Poop
