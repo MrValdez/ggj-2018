@@ -8,7 +8,6 @@ from .stage import Stage, Text, UpdatingText, Avatar
 class Signal(Avatar):
     def __init__(self, speed, pos):
         Avatar.__init__(self, speed=speed, pos=pos, facing=[1, 0],
-                        #animation_files=[("images/RickRoll.png", 200),])
                         animation_files=[("images/knuckles.jpg", 200),])
         self.anim.set_alpha(50)
 

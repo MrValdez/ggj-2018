@@ -12,6 +12,8 @@ https://thenounproject.com/term/poop/55377/
 https://commons.wikimedia.org/wiki/File:Computer.svg
 https://thenounproject.com/term/wifi-signal/325210/
 https://commons.wikimedia.org/wiki/File:Living_Room.jpg
+https://thenounproject.com/term/fist/104711/
+https://thenounproject.com/term/television/10291/
 
 ## Linkware License
 https://visualpharm.com/free-icons/sad%20cloud-595b40b85ba036ed117dc41c
