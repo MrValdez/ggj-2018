@@ -9,7 +9,7 @@ from .stage import Stage, Text, Projectile, Collidable, Avatar
 
 class Player(Avatar):
     def __init__(self):
-        Avatar.__init__(self, speed=10, pos=[400, 350], facing=[1, 0],
+        Avatar.__init__(self, speed=20, pos=[400, 350], facing=[1, 0],
                         animation_files=[("images/poop.png", 200),])
 
     def update(self, input, tick):
