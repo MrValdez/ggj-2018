@@ -15,13 +15,59 @@ class Collidable:
         rect1.move_ip(self.pos)
         rect2.move_ip(obj.pos)
         
-        return rect1.colliderect(rect2):
+        return rect1.colliderect(rect2)
 
     def update(self, tick):
         pass
 
     def draw(self, screen):
         self.anim.blit(screen, self.pos)
+
+
+class Avatar(Collidable):
+    def __init__(self, speed, pos, facing, animation_files = None):
+        if animation_files is None:
+            animation_files = [("images/button1.png", 200),
+                               ("images/button 2.png", 200)]
+
+        self.avatar_original = pyganim.PygAnimation(animation_files)
+        self.avatar_up = self.avatar_original.getCopy()
+        self.avatar_down = self.avatar_original.getCopy()
+        self.avatar_down.rotate(180)
+        self.avatar_left = self.avatar_original.getCopy()
+        self.avatar_left.rotate(90)
+        self.avatar_right = self.avatar_original.getCopy()
+        self.avatar_right.rotate(-90)
+        self.avatar_up.play()
+        self.avatar_down.play()
+        self.avatar_left.play()
+        self.avatar_right.play()
+
+        self.anim = self.avatar_up
+        self.pos = [100, 300]
+        self.facing = [1, 0]
+        self.speed = speed
+        
+    def update(self, input, tick):
+        speed = self.speed
+        missile_speed = 5
+        
+        if input.left_hold:
+            self.anim = self.avatar_left
+            self.pos[0] -= speed
+            self.facing = [-1, 0]
+        if input.right_hold:
+            self.anim = self.avatar_right
+            self.pos[0] += speed
+            self.facing = [+1, 0]
+        if input.down_hold:
+            self.anim = self.avatar_down
+            self.pos[1] += speed
+            self.facing = [0, +1]
+        if input.up_hold:
+            self.anim = self.avatar_up
+            self.pos[1] -= speed
+            self.facing = [0, -1]
 
 
 class Projectile(Collidable):

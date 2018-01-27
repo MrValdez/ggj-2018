@@ -15,6 +15,7 @@ from stages.stage7 import Stage7
 from stages.stage8 import Stage8
 from stages.stage9 import Stage9
 from stages.stage10 import Stage10
+from stages.stage11 import Stage11
 from stages.stage_end import Stage_end
 from stages.stage_transition import Stage_transition
 
@@ -32,7 +33,8 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
-    Stage10(resolution),         # Ninja Turtle Van
+#    Stage11(resolution),        # Space Defender
+    Stage10(resolution),        # Ninja Turtle Van
     Stage9(resolution),         # Dancing
     Stage8(resolution),         # Two auth factor
     Stage7(resolution),         # USB connection

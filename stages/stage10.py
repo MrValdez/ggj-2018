@@ -3,49 +3,12 @@
 import pygame
 import pyganim
 import random
-from .stage import Stage, Text, Projectile, Collidable
+from .stage import Stage, Text, Projectile, Collidable, Avatar
 
 
-class Van(Collidable):
+class Van(Avatar):
     def __init__(self):
-        self.van_original = pyganim.PygAnimation([("images/button1.png", 200),
-                                                   ("images/button 2.png", 200)])
-        self.van_up = self.van_original.getCopy()
-        self.van_down = self.van_original.getCopy()
-        self.van_down.rotate(180)
-        self.van_left = self.van_original.getCopy()
-        self.van_left.rotate(90)
-        self.van_right = self.van_original.getCopy()
-        self.van_right.rotate(-90)
-        self.van_up.play()
-        self.van_down.play()
-        self.van_left.play()
-        self.van_right.play()
-
-        self.anim = self.van_right
-        self.pos = [100, 300]
-        self.facing = [1, 0]
-        
-    def update(self, input, tick):
-        speed = 3
-        missile_speed = 5
-        
-        if input.left_hold:
-            self.anim = self.van_left
-            self.pos[0] -= speed
-            self.facing = [-1, 0]
-        if input.right_hold:
-            self.anim = self.van_right
-            self.pos[0] += speed
-            self.facing = [+1, 0]
-        if input.down_hold:
-            self.anim = self.van_down
-            self.pos[1] += speed
-            self.facing = [0, +1]
-        if input.up_hold:
-            self.anim = self.van_up
-            self.pos[1] -= speed
-            self.facing = [0, -1]
+        Avatar.__init__(self, speed=3, pos=[100, 300], facing=[1, 0])
 
 
 class Stage10(Stage):
@@ -81,6 +44,7 @@ class Stage10(Stage):
 
     def update(self, input, tick):
         self.van.update(input, tick)
+        missile_speed = 5
 
         if input.button:            
             newShot = Projectile(self.shot_original, self.van.pos, self.van.facing, missile_speed, self.resolution)
