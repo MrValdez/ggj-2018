@@ -2,32 +2,14 @@
 
 import pygame
 import pyganim
-from .stage import Stage, Text, Avatar
+from .stage import Stage, Text
 
-
-class Player(Avatar):
-    def __init__(self):
-        Avatar.__init__(self, speed=10, pos=[400, 350], facing=[1, 0],
-                        animation_files=[("images/poop.png", 200),])
-
-    def update(self, input, tick):
-        speed = self.speed
-
-        if input.left_hold:
-            self.pos[0] -= speed
-        if input.right_hold:
-            self.pos[0] += speed
-        if input.up_hold:
-            self.pos[1] -= speed
-        if input.down_hold:
-            self.pos[1] += speed
 
 class Stage18(Stage):
     def __init__(self, resolution):
         super().__init__(resolution)
         self.bg = pygame.image.load("images/CPU Upgrade.png").convert()
 
-        self.cost = [0.5, 1.3, 0.9, 1.10, 2.5]
         self.reset()
         
     def reset(self):
