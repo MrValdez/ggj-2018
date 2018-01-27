@@ -8,12 +8,13 @@ from stages.stage_example import StageExample
 from stages.stage1 import Stage1
 from stages.stage2 import Stage2
 from stages.stage3 import Stage3
+from stages.stage4 import Stage4
 from stages.stage_end import Stage_end
 from stages.stage_transition import Stage_transition
 
 #os.environ['SDL_VIDEO_WINDOW_POS'] = "1, 0"
 os.environ['SDL_VIDEO_WINDOW_POS'] = "100, 0"     #debug
-resolution = [1024, 768]
+resolution = [800, 600]
 
 pygame.init()
 pygame.display.set_caption("32 bits delivery")
@@ -25,6 +26,7 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
+    Stage4(resolution),         # punching game
     Stage3(resolution),         # chrome game
     Stage2(resolution),         # have you tried turning it on and off again?
     Stage_end(resolution),
