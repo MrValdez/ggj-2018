@@ -44,13 +44,13 @@ class Avatar(Collidable):
         self.avatar_right.play()
 
         self.anim = self.avatar_up
-        self.pos = [100, 300]
-        self.facing = [1, 0]
+        self.anim.play()
+        self.pos = pos[:]
+        self.facing = facing[:]
         self.speed = speed
         
     def update(self, input, tick):
         speed = self.speed
-        missile_speed = 5
         
         if input.left_hold:
             self.anim = self.avatar_left
