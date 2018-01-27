@@ -51,13 +51,12 @@ class Stage10(Stage):
             self.shots.append(newShot)
 
         for shot in self.shots:
-            if shot.update(tick):
+            if shot.update(input, tick):
                 self.shots.remove(shot)
 
         for barrier in self.barriers:
             for shot in self.shots:
                 if shot.has_collide(barrier):
-                    print("collide")
                     self.shots.remove(shot)
         
         if self.van.has_collide(self.exit):

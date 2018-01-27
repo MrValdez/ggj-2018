@@ -33,7 +33,7 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
-#    Stage11(resolution),        # Space Defender
+    Stage11(resolution),        # Space Defender
     Stage10(resolution),        # Ninja Turtle Van
     Stage9(resolution),         # Dancing
     Stage8(resolution),         # Two auth factor

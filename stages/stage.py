@@ -17,7 +17,7 @@ class Collidable:
         
         return rect1.colliderect(rect2)
 
-    def update(self, tick):
+    def update(self, input, tick):
         pass
 
     def draw(self, screen):
@@ -86,7 +86,7 @@ class Projectile(Collidable):
         elif self.facing == [0, 1]:
             self.anim.rotate(180)
 
-    def update(self, tick):
+    def update(self, input, tick):
         self.pos[0] += self.facing[0] * self.speed
         self.pos[1] += self.facing[1] * self.speed
         if (-100 < self.pos[0] > self.resolution[0] or
@@ -122,6 +122,13 @@ class Stage:
         pos.centery = 50
         return pos
 
+    def _iterate_all(self, objects, func, kwargs):
+        for obj in objects:
+            if type(obj) is list:
+                self._iterate_all(obj, func, kwargs)
+            else:
+                getattr(obj, func)(**kwargs)
+                
     def update(self, input, tick):
         """ if update returns True, change stage """
         if input.left: print("left")
