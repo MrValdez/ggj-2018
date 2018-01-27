@@ -20,6 +20,7 @@ from stages.stage12 import Stage12
 from stages.stage13 import Stage13
 from stages.stage14 import Stage14
 from stages.stage15 import Stage15
+from stages.stage16 import Stage16
 from stages.stage_end import Stage_end
 from stages.stage_transition import Stage_transition
 
@@ -37,6 +38,7 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
+    Stage16(resolution),        # Poop
     Stage15(resolution),        # Clap to transmit noise
     Stage14(resolution),        # Find the strongest transmission
     Stage13(resolution),        # Love transmission!
