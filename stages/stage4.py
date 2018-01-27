@@ -2,9 +2,41 @@
 
 import pygame
 import pyganim
+import random
 from .stage import Stage, Text
 
-class Stage4(Stage):
+class Enemy:
+    def __init__(self, midscreen):
+        self.midscreen = midscreen
+
+        self.anim = pyganim.PygAnimation([("images/button1.png", 10),
+                                          ("images/button 2.png", 10)])
+        self.anim.play()
+
+        self.rect = self.anim.getRect()
+        self.rect.centerx = self.midscreen
+        self.rect.top = random.randint(0, 1)
+        
+        self.speed = [0.3, 1]
+        self.dir = random.choice([-1, +1])
+        self.scale = 1
+
+    def update(self, tick):
+        self.rect.y += self.speed[0]
+        if abs(self.midscreen - self.rect.centerx) < 130:
+            self.rect.centerx += (self.speed[1] / 2) * self.dir
+        self.speed[0] += 0.09
+        self.speed[1] += 0.04
+        
+        self.scale += 0.01
+        self.scale = min(self.scale, 2.1)
+        self.anim._transformedImages = []        # force reset. inefficient
+        self.anim.rotozoom(0, self.scale)
+
+    def draw(self, screen):
+        self.anim.blit(screen, (self.rect.x, self.rect.y))
+
+class Stage4(Stage):            
     def __init__(self, resolution):
         super().__init__(resolution)
 
@@ -16,11 +48,8 @@ class Stage4(Stage):
                                                ("images/button 2.png", 10)])
         self.right_anim = pyganim.PygAnimation([("images/button1.png", 10),
                                                ("images/button 2.png", 10)])
-        self.enemy_anim = pyganim.PygAnimation([("images/button1.png", 10),
-                                               ("images/button 2.png", 10)])
         self.stand_anim.play()
         self.left_anim.play()
-        self.enemy_anim.play()
 
         self.center_x = resolution[0] / 2
         self.bottom_y = resolution[1]
@@ -30,14 +59,12 @@ class Stage4(Stage):
         self.current_anim = self.stand_anim
         self.enemies = []
         for i in range(4):
-            pos = [0, 0]
-            enemy = self.enemy_anim.getCopy()
-            self.enemies.append((enemy, pos))
+            self.enemies.append(Enemy(self.center_x))
         self.punch_cooldown = 0
 
     def update(self, input, tick):
-        for i, enemy in enumerate(self.enemies):
-            self.enemies[i][1][1] += 2
+        for enemy in self.enemies:
+            enemy.update(tick)
         
         self.punch_cooldown -= tick
         
@@ -69,5 +96,5 @@ class Stage4(Stage):
             
         self.stand_anim.blit(screen, (rect.x, rect.y))
 
-        for anim, pos in self.enemies:
-            anim.blit(screen, pos)
+        for enemy in self.enemies:
+            enemy.draw(screen)
