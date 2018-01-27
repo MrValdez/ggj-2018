@@ -41,17 +41,19 @@ class Stage7(Stage):
             return
 
         if input.button or input.up or input.down:
-            self.distance = 200
-            self.male.flip(False, True)
+            if self.sad_visible != 0:
+                self.rotate += 1
+                self.male.flip(False, True)
+
             self.sad_visible = 0
-            self.rotate += 1
+            self.distance = 200
 
         if input.right:
             self.distance = 40
             
             if self.rotate < 3:
                 self.rotate = 0
-                self.sad_visible = 1000
+                self.sad_visible = 300
             else:
                 self.distance = 100
                 self.victory = 1
