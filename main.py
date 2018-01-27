@@ -13,6 +13,7 @@ from stages.stage5 import Stage5
 from stages.stage6 import Stage6
 from stages.stage7 import Stage7
 from stages.stage8 import Stage8
+from stages.stage9 import Stage9
 from stages.stage_end import Stage_end
 from stages.stage_transition import Stage_transition
 
@@ -30,6 +31,7 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
+    Stage9(resolution),         # Dancing
     Stage8(resolution),         # Two auth factor
     Stage7(resolution),         # USB connection
     Stage6(resolution),         # energize with coffee
