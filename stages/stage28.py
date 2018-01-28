@@ -70,7 +70,7 @@ class Stage28(Stage):
         self.current = 0
         self.timer = 1100
         self.wifi_level = 0
-        self.correct_lane = random.randint(0, 4)
+        self.correct_lane = random.randint(0, 3)
         
     def update(self, input, tick):
         self._iterate_all(self.images, "update", {"input": input, "tick": tick})

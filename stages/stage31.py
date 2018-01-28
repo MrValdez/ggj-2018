@@ -68,6 +68,10 @@ class Stage31(Stage):
 
     def update(self, input, tick):
         self.toothbrush.update(input, tick)
+        
+        self.toothbrush.pos[0] = max(0, min(self.resolution[0], self.toothbrush.pos[0]))
+        self.toothbrush.pos[1] = max(0, min(self.resolution[1] - 20, self.toothbrush.pos[1]))
+        
         #self._iterate_all(self.pastes, "update", {"input": input, "tick": tick})
 
         for tooth in self.teeth:

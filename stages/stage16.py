@@ -52,6 +52,10 @@ class Stage16(Stage):
 
     def update(self, input, tick):
         self.avatar.update(input, tick)
+
+        self.avatar.pos[0] = max(0, min(self.resolution[0], self.avatar.pos[0]))
+        self.avatar.pos[1] = max(0, min(self.resolution[1] - 20, self.avatar.pos[1]))
+
         for enemy in self.enemies:
             speed = random.randint(-1, 20)
             if enemy.has_collide(self.avatar):
