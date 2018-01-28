@@ -33,6 +33,7 @@ from stages.stage25 import Stage25
 from stages.stage26 import Stage26
 from stages.stage27 import Stage27
 from stages.stage28 import Stage28
+from stages.stage29 import Stage29
 from stages.stage_end import Stage_end
 from stages.stage_transition import Stage_transition
 
@@ -51,6 +52,7 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
+    Stage29(resolution),        # Button mash to transmit
     Stage28(resolution),        # Game and Watch
     Stage27(resolution),        # Stop Spamming
     Stage26(resolution),        # Share love by petting
