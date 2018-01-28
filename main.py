@@ -52,6 +52,7 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
+    Stage10(resolution),        # Ninja Turtle Van
     Stage29(resolution),        # Button mash to transmit
     Stage28(resolution),        # Game and Watch
     Stage27(resolution),        # Stop Spamming
@@ -71,7 +72,6 @@ stages = [
     Stage13(resolution),        # Love transmission!
     Stage12(resolution),        # Charge!
     Stage11(resolution),        # Space Defender
-    Stage10(resolution),        # Ninja Turtle Van
     Stage9(resolution),         # Dancing
     Stage8(resolution),         # Two auth factor
     Stage7(resolution),         # USB connection

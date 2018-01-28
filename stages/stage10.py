@@ -8,23 +8,23 @@ from .stage import Stage, Text, Projectile, Collidable, Avatar
 
 class Van(Avatar):
     def __init__(self):
-        Avatar.__init__(self, speed=3, pos=[100, 300], facing=[1, 0])
+        Avatar.__init__(self, speed=3, pos=[100, 300], facing=[1, 0], animation_files=[("images/car.png", 200),])
 
 
 class Stage10(Stage):
     def __init__(self, resolution):
         super().__init__(resolution)
-        self.texts = [Text("Drive the turtle van to the exit", (255, 255, 255), self._center_text)]
+        self.texts = [Text("Drive the delivery van to the exit", (255, 255, 255), self._center_text)]
 
         self.van = Van()
 
-        self.shot_original = pyganim.PygAnimation([("images/button1.png", 200),
-                                                   ("images/button 2.png", 200)])
+        self.shot_original = pyganim.PygAnimation([("images/wifi signals.png", 200),])
         self.shots = []
         
-        self.barrier = pyganim.PygAnimation([("images/button1.png", 200),
-                                                   ("images/button 2.png", 200)])
-        self.barriers = [Collidable(self.barrier, [20, 20])]
+        self.barrier = pyganim.PygAnimation([("images/car.png", 200),])
+        self.barriers = [
+            #Collidable(self.barrier, [20, 20])
+        ]
 
         rects = [
                  [64 * 1, 0, 64, 64],
@@ -43,6 +43,7 @@ class Stage10(Stage):
         pass
 
     def update(self, input, tick):
+        prev_pos = self.van.pos
         self.van.update(input, tick)
         missile_speed = 5
 
@@ -58,6 +59,11 @@ class Stage10(Stage):
             for shot in self.shots:
                 if shot.has_collide(barrier):
                     self.shots.remove(shot)
+
+        for barrier in self.barriers:
+            if barrier.has_collide(self.van):
+                self.van.pos = prev_pos
+                print(prev_pos)
         
         if self.van.has_collide(self.exit):
             return True

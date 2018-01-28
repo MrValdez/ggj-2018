@@ -42,7 +42,7 @@ class Stage29(Stage):
 
         for circle in self.circles:
             color, pos, radius = circle
-            circle[2] += 1
+            circle[2] += len(self.circles)
             pygame.draw.circle(screen, color, pos, radius, random.randint(2, 10))
             
         self.button.blit(screen, self.button_pos)
