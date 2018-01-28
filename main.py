@@ -36,6 +36,7 @@ from stages.stage28 import Stage28
 from stages.stage29 import Stage29
 from stages.stage30 import Stage30
 from stages.stage31 import Stage31
+from stages.stage32 import Stage32
 from stages.stage_end import Stage_end
 from stages.stage_transition import Stage_transition
 
@@ -54,8 +55,9 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
-    Stage31(resolution),        # transmit toothpaste to teeth
+    Stage32(resolution),        # transmit knowledge
     Stage30(resolution),        # transmit toothpaste
+    Stage31(resolution),        # transmit toothpaste to teeth
     Stage29(resolution),        # Button mash to transmit
     Stage28(resolution),        # Game and Watch
     Stage27(resolution),        # Stop Spamming

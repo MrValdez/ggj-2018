@@ -24,6 +24,8 @@ http://animalphotos.info/a/2007/12/22/kawaii-puppy-chews-on-a-bone/
 https://commons.wikimedia.org/wiki/File:Spam_can.png
 https://openclipart.org/detail/234441/dragon-paint-job-on-car-top-view
 https://commons.wikimedia.org/wiki/File:A_Toothbrush.JPG
+https://thenounproject.com/term/head/66684/
+https://openclipart.org/detail/24723/book
 
 ## Linkware License
 https://visualpharm.com/free-icons/sad%20cloud-595b40b85ba036ed117dc41c
