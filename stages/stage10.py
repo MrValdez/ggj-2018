@@ -14,6 +14,7 @@ class Van(Avatar):
 class Stage10(Stage):
     def __init__(self, resolution):
         super().__init__(resolution)
+        self.bg = pygame.image.load("images/road bg.png")
         self.texts = [Text("Drive the delivery van to the exit", (255, 255, 255), self._center_text)]
 
         self.van = Van()
@@ -70,6 +71,7 @@ class Stage10(Stage):
 
             
     def draw(self, screen):
+        screen.blit(self.bg, [-200, 0])
         super().draw(screen)
 
         self.exit.draw(screen)

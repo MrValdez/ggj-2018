@@ -11,10 +11,11 @@ class Stage5(Stage):
 
         self.texts = [Text("CROWD SURFING", (255, 255, 255), self._center_text)]
 
+        self.bg = pygame.image.load("images/2013_Woodstock_144_crowd_surfing.jpg")
+
         self.crowd = pyganim.PygAnimation([("images/button1.png", 10),
                                                ("images/button 2.png", 10)])
-        self.player = pyganim.PygAnimation([("images/button1.png", 10),
-                                               ("images/button 2.png", 10)])
+        self.player = pyganim.PygAnimation([("images/surfer.png", 10),])
         rects = [
                  [64 * 1, 0, 64, 64],
                  [64 * 2, 0, 64, 64],
@@ -24,6 +25,7 @@ class Stage5(Stage):
         exit = pyganim.getImagesFromSpriteSheet("images/door2.png", rects=rects)
         frames = list(zip(exit, [1000, 400, 400, 400]))
         self.exit = pyganim.PygAnimation(frames)
+        self.exit.scale2x()
         
         self.crowd.play()
         self.player.play()
@@ -42,7 +44,7 @@ class Stage5(Stage):
                 x += random.randint(0, 40)
             self.crowds.append((crowd, pos))
         
-        self.exit_pos = (700, random.randint(100, 400))
+        self.exit_pos = (700, random.randint(100, 350))
         self.player_pos = [100, random.randint(100, 450)]
 
     def update(self, input, tick):
@@ -69,10 +71,11 @@ class Stage5(Stage):
             return True
 
     def draw(self, screen):
+        screen.blit(self.bg, [0, -150]) 
         super().draw(screen)
 
-        for crowd, pos in self.crowds:
-            crowd.blit(screen, pos)
+#        for crowd, pos in self.crowds:
+#            crowd.blit(screen, pos)
         
         self.exit.blit(screen, self.exit_pos)
         self.player.blit(screen, self.player_pos)

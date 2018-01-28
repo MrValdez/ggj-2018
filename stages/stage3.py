@@ -10,10 +10,8 @@ class Stage3(Stage):
 
         self.texts = [Text("JUMP", (255, 255, 255), self._center_text)]
 
-        self.run_anim = pyganim.PygAnimation([("images/button1.png", 10),
-                                              ("images/button 2.png", 10)])
-        self.jump_anim = pyganim.PygAnimation([("images/button1.png", 10),
-                                               ("images/button 2.png", 10)])
+        self.run_anim = pyganim.PygAnimation([("images/dinosaur.png", 10),])
+        self.jump_anim = pyganim.PygAnimation([("images/dinosaur.png", 10),])
 
         self.run_anim.play()
         self.jump_anim.play()
@@ -25,12 +23,12 @@ class Stage3(Stage):
         self.reset()
         
     def reset(self):
-        self.player_x = 400
-        self.ground_y = 200
+        self.player_x = 200
+        self.ground_y = 300
         self.state = "run"
         self.jump_power = 0
         self.jump_tick = 0
-        self.obstacle_pos = [self.player_x + 1000, self.ground_y]
+        self.obstacle_pos = [self.player_x + 1000, self.ground_y + 50]
 
     def update(self, input, tick):
         if input.button:

@@ -26,6 +26,13 @@ https://openclipart.org/detail/234441/dragon-paint-job-on-car-top-view
 https://commons.wikimedia.org/wiki/File:A_Toothbrush.JPG
 https://thenounproject.com/term/head/66684/
 https://openclipart.org/detail/24723/book
+https://pixabay.com/en/velociraptor-dinosaur-silhouette-1531579/
+https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg
+https://www.freevector.com/dancers-vectors
+https://commons.wikimedia.org/wiki/File:2013_Woodstock_144_crowd_surfing.jpg
+https://thenounproject.com/term/crowd-surfing/53606/
+https://commons.wikimedia.org/wiki/File:Football_game_kickoff_(Georgia_vs_South_Carolina),_Sanford_Stadium,_September_2007.jpg
+https://commons.wikimedia.org/wiki/File:Indiana-rural-road.jpg
 
 ## Linkware License
 https://visualpharm.com/free-icons/sad%20cloud-595b40b85ba036ed117dc41c

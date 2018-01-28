@@ -8,10 +8,12 @@ from .stage import Stage, Text
 class Stage9(Stage):
     def __init__(self, resolution):
         super().__init__(resolution)
-        self.texts = [Text("Dance to transmit!", (255, 255, 255), self._center_text)]
+        self.texts = [Text("Dance Quickly to transmit!", (255, 255, 255), self._center_text)]
 
-        self.dance = pyganim.PygAnimation([("images/button1.png", 200),
-                                            ("images/button 2.png", 200)])
+        self.dance = pyganim.PygAnimation([("images/dance1.png", 200),
+                                            ("images/dance2.png", 200),
+                                            ("images/dance3.png", 200),
+                                            ("images/dance4.png", 200)])
         self.dance.rate = 1.0
         self.dance.play()
 

@@ -51,6 +51,8 @@ class Stage12(Stage):
 
     def __init__(self, resolution):
         super().__init__(resolution)
+        
+        self.bg = pygame.image.load("images/field_bg.png")
         self.title = Text("Charge to the end without getting caught", (255, 255, 255), self._center_text)
         self.texts = [self.title]
 
@@ -59,6 +61,7 @@ class Stage12(Stage):
     def reset(self):
         self.avatar = Player()
         self.target_y = -5000
+        self.bg_pos = [200, -1000]
         
         self.enemies = []
         self.enemy_spawn_time = 100
@@ -98,6 +101,9 @@ class Stage12(Stage):
             return True
 
     def draw(self, screen):
+        screen.blit(self.bg, self.bg_pos)
+        self.bg_pos[1] += 2
+
         super().draw(screen)
 
         pygame.draw.line(screen, [255, 128, 200], [0, self.target_y], [self.resolution[1] * 2, self.target_y], 10)
