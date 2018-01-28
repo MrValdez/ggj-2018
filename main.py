@@ -37,16 +37,17 @@ from stages.stage29 import Stage29
 from stages.stage30 import Stage30
 from stages.stage31 import Stage31
 from stages.stage32 import Stage32
+from stages.stage_start import Stage_start
 from stages.stage_end import Stage_end
 from stages.stage_transition import Stage_transition
 
 #os.environ['SDL_VIDEO_WINDOW_POS'] = "1, 0"
-os.environ['SDL_VIDEO_WINDOW_POS'] = "100, 0"     #debug
+os.environ['SDL_VIDEO_WINDOW_POS'] = "100, 10"
 resolution = [800, 600]
 
 pygame.init()
 pygame.mouse.set_visible(False)
-pygame.display.set_caption("32 bits delivery")
+pygame.display.set_caption("32 bits of delivery")
 screen = pygame.display.set_mode(resolution)
 clock = pygame.time.Clock()
 
@@ -56,20 +57,21 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
+    Stage_start(resolution),
     Stage2(resolution),         # have you tried turning it on and off again?
     Stage29(resolution),        # Button mash to transmit
-    Stage25(resolution),        # Share regrets
     Stage27(resolution),        # Stop Spamming
+    Stage26(resolution),        # Share love by petting
     Stage8(resolution),         # Two auth factor
     Stage7(resolution),         # USB connection
     Stage16(resolution),        # Poop
-    Stage26(resolution),        # Share love by petting
     Stage18(resolution),        # Upgrade PC
     Stage9(resolution),         # Dancing
     Stage22(resolution),        # Psychic transmission
     Stage21(resolution),        # Fix TV
     Stage20(resolution),        # Tune TV signal
     Stage17(resolution),        # Buy coffee
+    Stage25(resolution),        # Share regrets
     Stage23(resolution),        # Send SMS
     Stage13(resolution),        # Love transmission!
     Stage3(resolution),         # chrome game
@@ -79,13 +81,13 @@ stages = [
     Stage28(resolution),        # Game and Watch
     Stage24(resolution),        # Send Like
     Stage6(resolution),         # energize with coffee
-    Stage4(resolution),         # punching game
-    Stage11(resolution),        # Space Defender
     Stage5(resolution),         # crowd surfing game
-    Stage12(resolution),        # Charge!
     Stage32(resolution),        # transmit knowledge
     Stage30(resolution),        # transmit toothpaste
     Stage31(resolution),        # transmit toothpaste to teeth
+    Stage12(resolution),        # Charge!
+    Stage11(resolution),        # Space Defender
+    Stage4(resolution),         # punching game
     Stage10(resolution),        # Ninja Turtle Van
     Stage_end(resolution),
     ]
