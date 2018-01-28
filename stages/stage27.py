@@ -19,7 +19,7 @@ class Spam:
 
     def update(self, input, tick):
         if self.destroyed:
-            self.fade -= 0.005
+            self.fade -= 15
             self.pos[0] += self.velocity[0]
             self.pos[1] += self.velocity[1]
 
