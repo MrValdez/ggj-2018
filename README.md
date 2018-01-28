@@ -20,6 +20,7 @@ https://creativecommons.org/website-icons/
 http://www.ccpixs.com/ccimages/vector-pixel-heart/1378/
 https://commons.wikimedia.org/wiki/File:Circle-Thumb.png
 https://commons.wikimedia.org/wiki/File:Thumbs-up-icon.png
+http://animalphotos.info/a/2007/12/22/kawaii-puppy-chews-on-a-bone/
 
 ## Linkware License
 https://visualpharm.com/free-icons/sad%20cloud-595b40b85ba036ed117dc41c
