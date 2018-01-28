@@ -56,36 +56,36 @@ input = Input()
 stages = [
 #    StageExample(resolution),
 #    Stage1(resolution),
-    Stage32(resolution),        # transmit knowledge
-    Stage30(resolution),        # transmit toothpaste
-    Stage31(resolution),        # transmit toothpaste to teeth
+    Stage2(resolution),         # have you tried turning it on and off again?
     Stage29(resolution),        # Button mash to transmit
-    Stage28(resolution),        # Game and Watch
-    Stage27(resolution),        # Stop Spamming
-    Stage26(resolution),        # Share love by petting
     Stage25(resolution),        # Share regrets
-    Stage24(resolution),        # Send Like
-    Stage23(resolution),        # Send SMS
+    Stage27(resolution),        # Stop Spamming
+    Stage8(resolution),         # Two auth factor
+    Stage7(resolution),         # USB connection
+    Stage16(resolution),        # Poop
+    Stage26(resolution),        # Share love by petting
+    Stage18(resolution),        # Upgrade PC
+    Stage9(resolution),         # Dancing
     Stage22(resolution),        # Psychic transmission
     Stage21(resolution),        # Fix TV
     Stage20(resolution),        # Tune TV signal
-    Stage19(resolution),        # Sell trash
-    Stage18(resolution),        # Upgrade PC
     Stage17(resolution),        # Buy coffee
-    Stage16(resolution),        # Poop
-    Stage15(resolution),        # Clap to transmit noise
-    Stage14(resolution),        # Find the strongest transmission
+    Stage23(resolution),        # Send SMS
     Stage13(resolution),        # Love transmission!
-    Stage8(resolution),         # Two auth factor
-    Stage7(resolution),         # USB connection
+    Stage3(resolution),         # chrome game
+    Stage15(resolution),        # Clap to transmit noise
+    Stage19(resolution),        # Sell trash
+    Stage14(resolution),        # Find the strongest transmission
+    Stage28(resolution),        # Game and Watch
+    Stage24(resolution),        # Send Like
     Stage6(resolution),         # energize with coffee
     Stage4(resolution),         # punching game
-    Stage2(resolution),         # have you tried turning it on and off again?
-    Stage3(resolution),         # chrome game
     Stage11(resolution),        # Space Defender
-    Stage9(resolution),         # Dancing
     Stage5(resolution),         # crowd surfing game
     Stage12(resolution),        # Charge!
+    Stage32(resolution),        # transmit knowledge
+    Stage30(resolution),        # transmit toothpaste
+    Stage31(resolution),        # transmit toothpaste to teeth
     Stage10(resolution),        # Ninja Turtle Van
     Stage_end(resolution),
     ]
