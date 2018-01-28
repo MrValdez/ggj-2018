@@ -12,7 +12,9 @@ class Input:
         
         self.button1_bindings = pygame.K_q
         self.button2_bindings = pygame.K_w
-
+        self.button3_bindings = pygame.K_SPACE
+        self.button4_bindings = pygame.K_RETURN
+        
         pygame.joystick.init()
         self.joystick = pygame.joystick.Joystick(0) if pygame.joystick.get_count() else None
 
@@ -68,6 +70,10 @@ class Input:
                 return self.joystick.get_button(0) and not self.prev_buttons[0]
             elif key == self.button2_bindings:
                 return self.joystick.get_button(1) and not self.prev_buttons[1]
+            elif key == self.button3_bindings:
+                return self.joystick.get_button(2) and not self.prev_buttons[2]
+            elif key == self.button4_bindings:
+                return self.joystick.get_button(3) and not self.prev_buttons[3]
             
             return False
 
@@ -76,6 +82,10 @@ class Input:
                 return self.joystick.get_button(0)
             elif key == self.button2_bindings:
                 return self.joystick.get_button(1)
+            elif key == self.button3_bindings:
+                return self.joystick.get_button(2)
+            elif key == self.button4_bindings:
+                return self.joystick.get_button(3)
             
             return False
 
@@ -113,6 +123,8 @@ class Input:
         self.down = check_key(pygame.K_DOWN)
         self.button1 = check_key(self.button1_bindings)
         self.button2 = check_key(self.button2_bindings)
+        self.button3 = check_key(self.button3_bindings)
+        self.button4 = check_key(self.button4_bindings)
 
         self.left_hold = check_keyhold(pygame.K_LEFT)
         self.right_hold = check_keyhold(pygame.K_RIGHT)
@@ -120,10 +132,12 @@ class Input:
         self.down_hold = check_keyhold(pygame.K_DOWN)
         self.button1_hold = check_keyhold(self.button1_bindings)
         self.button2_hold = check_keyhold(self.button2_bindings)
+        self.button3_hold = check_keyhold(self.button3_bindings)
+        self.button4_hold = check_keyhold(self.button4_bindings)
 
         # any button is pushed
-        self.button = self.button1 or self.button2
-        self.button_hold = self.button1_hold or self.button2_hold
+        self.button = self.button1 or self.button2 or self.button3 or self.button4
+        self.button_hold = self.button1_hold or self.button2_hold or self.button3_hold or self.button4_hold
 
         self.prev_keys = keys
         if self.joystick:

@@ -39,13 +39,14 @@ class Stage11(Stage):
         self.shot_original = pyganim.PygAnimation([("images/button1.png", 200),
                                                    ("images/button 2.png", 200)])
 
+        self.bg = pygame.image.load("images/space background.png")
         self.reset()
         
     def reset(self):
         self.shots = []
         self.aliens = []
         for i in range(20):
-            x, y = random.randint(20, 300), random.randint(-800, 0)
+            x, y = random.randint(20, 500), random.randint(-500, 0)
             self.aliens.append(Alien([x, y]))
 
         self.objects = [self.avatar, self.shots, self.aliens]
@@ -82,6 +83,7 @@ class Stage11(Stage):
             return True
             
     def draw(self, screen):
+        screen.blit(self.bg, [0, -100])
         super().draw(screen)
 
         self._iterate_all(self.objects, "draw", {"screen": screen})

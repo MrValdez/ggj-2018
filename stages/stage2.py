@@ -10,6 +10,11 @@ class Stage2(Stage):
 
         self.texts = [Text("Have you tried turning it on and off again?", (255, 255, 255), self._center_text)]
 
+        self.pc = pyganim.PygAnimation([("images/computer.png", 10)])
+        self.poop = pyganim.PygAnimation([("images/poop.png", 10)])
+        self.pc.play()
+        self.poop.play()
+
         switch = pyganim.PygAnimation([("images/button1.png", 10),         # off
                                        ("images/button 2.png", 10)])        # on
         self.switches = []
@@ -21,8 +26,8 @@ class Stage2(Stage):
             switch.pause()
             self.switch_status.append(False)
 
-        self.pos = [[100, 200],
-                    [400, 200]]
+        self.pos = [[150, 400],
+                    [650, 400]]
         self.current_switch = 0
 
     def update(self, input, tick):
@@ -39,6 +44,9 @@ class Stage2(Stage):
 
     def draw(self, screen):
         super().draw(screen)
+
+        self.pc.blit(screen, [200, 300])
+        self.poop.blit(screen, [350, 400])
 
         for switch, pos in zip(self.switches, self.pos):
             switch.blit(screen, pos)

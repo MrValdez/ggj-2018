@@ -52,7 +52,7 @@ clock = pygame.time.Clock()
 
 GameIsRunning = True
 input = Input()
-stages = [
+working = [
 #    StageExample(resolution),
 #    Stage1(resolution),
     Stage32(resolution),        # transmit knowledge
@@ -75,17 +75,20 @@ stages = [
     Stage15(resolution),        # Clap to transmit noise
     Stage14(resolution),        # Find the strongest transmission
     Stage13(resolution),        # Love transmission!
-    Stage12(resolution),        # Charge!
-    Stage11(resolution),        # Space Defender
     Stage10(resolution),        # Ninja Turtle Van
-    Stage9(resolution),         # Dancing
     Stage8(resolution),         # Two auth factor
     Stage7(resolution),         # USB connection
     Stage6(resolution),         # energize with coffee
-    Stage5(resolution),         # crowd surfing game
     Stage4(resolution),         # punching game
-    Stage3(resolution),         # chrome game
     Stage2(resolution),         # have you tried turning it on and off again?
+
+    Stage12(resolution),        # Charge!
+    Stage11(resolution),        # Space Defender
+    Stage9(resolution),         # Dancing
+    Stage5(resolution),         # crowd surfing game
+    Stage3(resolution),         # chrome game
+    ]
+stages = [
     Stage_end(resolution),
     ]
 

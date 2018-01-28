@@ -47,14 +47,15 @@ class Stage4(Stage):
     def __init__(self, resolution):
         super().__init__(resolution)
 
-        self.texts = [Text("PROTECT THE PACKET", (255, 255, 255), self._center_text)]
+        self.texts = [Text("TRANSMIT BY PRESSING ALL THE BUTTONS", (255, 255, 255), self._center_text)]
 
-        self.stand_anim = pyganim.PygAnimation([("images/button1.png", 10),
-                                               ("images/button 2.png", 10)])
-        self.left_anim = pyganim.PygAnimation([("images/button1.png", 10),
-                                               ("images/button 2.png", 10)])
-        self.right_anim = pyganim.PygAnimation([("images/button1.png", 10),
-                                               ("images/button 2.png", 10)])
+        self.stand_anim = pyganim.PygAnimation([("images/fist.png", 10),])
+        self.left_anim = pyganim.PygAnimation([("images/fist.png", 10),])
+        self.right_anim = pyganim.PygAnimation([("images/fist.png", 10),])
+        
+        self.stand_anim.rotate(90)
+        self.left_anim.rotate(90)
+        self.right_anim.rotate(90)
         self.stand_anim.play()
         self.left_anim.play()
 
@@ -104,7 +105,7 @@ class Stage4(Stage):
 
 
     def draw(self, screen):
-        super().draw(screen)
+        screen.fill([255, 128, 128])
 
         rect = self.current_anim.getRect()
         rect.centerx = self.center_x
@@ -122,3 +123,5 @@ class Stage4(Stage):
 
         for enemy in self.enemies:
             enemy.draw(screen)
+
+        super().draw(screen)
