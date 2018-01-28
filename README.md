@@ -1,5 +1,23 @@
 # ggj-2018
 
+# Installation
+
+You need Python 3.4+
+
+In the command prompt, run the following:
+
+$ pip install -r requirements.txt
+
+To run the game,
+
+$ python main.py
+
+# Controls
+
+Arrow keys for directions, Q and W for buttons
+
+You can also use a joystick or joypad
+
 # art assets
 
 ## Creative Commons
