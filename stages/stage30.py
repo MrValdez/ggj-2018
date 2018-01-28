@@ -1,4 +1,4 @@
-# Button mashing
+# Transmit toothpaste
 
 import pygame
 import pyganim

@@ -29,6 +29,9 @@ https://commons.wikimedia.org/wiki/File:A_Toothbrush.JPG
 https://visualpharm.com/free-icons/sad%20cloud-595b40b85ba036ed117dc41c
 https://visualpharm.com/free-icons/toothpaste-595b40b85ba036ed117dac85
 
+## Freevector.com license
+https://www.freevector.com/dental-line-icons-24768
+
 ## Personally taken pictures
 usb ok.jpg
 
