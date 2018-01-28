@@ -23,9 +23,11 @@ https://commons.wikimedia.org/wiki/File:Thumbs-up-icon.png
 http://animalphotos.info/a/2007/12/22/kawaii-puppy-chews-on-a-bone/
 https://commons.wikimedia.org/wiki/File:Spam_can.png
 https://openclipart.org/detail/234441/dragon-paint-job-on-car-top-view
+https://commons.wikimedia.org/wiki/File:A_Toothbrush.JPG
 
 ## Linkware License
 https://visualpharm.com/free-icons/sad%20cloud-595b40b85ba036ed117dc41c
+https://visualpharm.com/free-icons/toothpaste-595b40b85ba036ed117dac85
 
 ## Personally taken pictures
 usb ok.jpg
