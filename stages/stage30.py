@@ -16,6 +16,7 @@ class Toothpaste(Collidable):
         self.pos[0] += self.speed[0]
         self.pos[1] += self.speed[1]
         self.speed[1] += 1
+        self.anim.rotate(random.randint(1, 2))
 
 class Toothbrush(Collidable):
     def __init__(self, resolution):
@@ -81,6 +82,11 @@ class Stage30(Stage):
             if paste.has_collide(self.toothbrush):
                 self.paste_applied += 1
                 self.pastes.remove(paste)
+                continue
+            if paste.pos[1] > self.resolution[1]:
+                self.pastes.remove(paste)
+                continue
+                
 
         if self.paste_applied > 5:
             return True
