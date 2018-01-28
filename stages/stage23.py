@@ -9,7 +9,6 @@ from .stage import Stage, Text
 class Stage23(Stage):
     def __init__(self, resolution):
         super().__init__(resolution)
-        self.bg = pygame.image.load("images/Psychic_reading.jpg").convert()
         self.phone = pygame.image.load("images/phone.png")
         self.phone = pygame.transform.scale2x(self.phone)
         self.mail = pygame.image.load("images/envelope.png")
